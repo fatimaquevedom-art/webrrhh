@@ -1,265 +1,248 @@
-// Datos de Vacantes de ejemplo
-const jobListings = [
-  {
-    id: 1,
-    title: "HR Business Partner (HRBP)",
-    category: "rrhh",
-    modality: "Híbrido",
-    modalityClass: "badge-hybrid",
-    location: "Buenos Aires, Argentina",
-    type: "Jornada Completa",
-    description: "Buscamos un/a profesional para liderar la alineación entre las estrategias de personas y los objetivos de negocio de nuestros clientes tecnológicos.",
-    tags: ["Estrategia RRHH", "People Analytics", "Gestión de Talento", "Inglés Avanzado"]
+// ============================================================================
+// CONFIGURACIÓN PERSONALIZABLE DE FÁTIMA QUEVEDO
+// Puedes modificar tus enlaces, número de WhatsApp y precios aquí mismo:
+// ============================================================================
+const CONFIG = {
+  // Tu número de WhatsApp con código de país (Ej: 54911... para Argentina)
+  // Reemplaza "5491123456789" por tu número real cuando lo desees:
+  whatsappNumber: "5491123456789",
+
+  // Correo de contacto
+  email: "fatimaquevedom@outlook.com",
+
+  // Redes Sociales
+  linkedinUrl: "https://www.linkedin.com/in/fatimaquevedom",
+  instagramUrl: "https://www.instagram.com/",
+
+  // Links de cobro de Mercado Pago para cada servicio:
+  // (Pega aquí tus links de Mercado Pago como https://mpago.la/xxxxxx)
+  mercadoPagoLinks: {
+    asesoria: "",      // Ejemplo: "https://mpago.la/1A2B3C"
+    cv: "",            // Ejemplo: "https://mpago.la/4D5E6F"
+    cv_linkedin: "",   // Ejemplo: "https://mpago.la/7G8H9I"
+    talleres: ""       // Ejemplo: "https://mpago.la/0J1K2L"
   },
-  {
-    id: 2,
-    title: "Senior Fullstack Developer (Node.js & React)",
-    category: "tecnologia",
-    modality: "Remoto",
-    modalityClass: "badge-remote",
-    location: "Latinoamérica (Remoto)",
-    type: "Full-time",
-    description: "Importante fintech internacional busca desarrollador Senior con sólida experiencia en arquitecturas escalables en la nube y microservicios.",
-    tags: ["Node.js", "React", "TypeScript", "AWS", "Docker"]
-  },
-  {
-    id: 3,
-    title: "Especialista en Atracción y Selección IT",
-    category: "rrhh",
-    modality: "Remoto",
-    modalityClass: "badge-remote",
-    location: "Remoto",
-    type: "Full-time",
-    description: "Responsable de hunting técnico, filtrado de perfiles IT especializados y acompañamiento en todo el embudo de reclutamiento.",
-    tags: ["IT Recruitment", "Sourcing", "LinkedIn Recruiter", "Psicología"]
-  },
-  {
-    id: 4,
-    title: "Account Executive B2B - Soluciones SaaS",
-    category: "ventas",
-    modality: "Híbrido",
-    modalityClass: "badge-hybrid",
-    location: "Córdoba, Argentina",
-    type: "Full-time",
-    description: "Buscamos un perfil comercial con experiencia en venta consultiva de software para empresas medianas y corporativas.",
-    tags: ["Ventas B2B", "CRM HubSpot", "Negociación", "Cierre de Cuentas"]
-  },
-  {
-    id: 5,
-    title: "Analista Senior de Finanzas y Control de Gestión",
-    category: "finanzas",
-    modality: "Presencial",
-    modalityClass: "badge-onsite",
-    location: "Buenos Aires, Argentina",
-    type: "Full-time",
-    description: "Encargado de presupuestación anual, análisis de desvíos, flujos de fondos y reporting financiero a la dirección.",
-    tags: ["Modelos Financieros", "Power BI", "Excel Avanzado", "Auditoría"]
-  },
-  {
-    id: 6,
-    title: "Product Designer (UI/UX Senior)",
-    category: "tecnologia",
-    modality: "Remoto",
-    modalityClass: "badge-remote",
-    location: "Latinoamérica (Remoto)",
-    type: "Full-time",
-    description: "Diseño centrado en el usuario para aplicaciones web y mobile. Creación de Design Systems, prototipado y pruebas con usuarios.",
-    tags: ["Figma", "Design Systems", "User Research", "Wireframing"]
+
+  // Precios sugeridos (puedes cambiarlos cuando quieras):
+  prices: {
+    asesoria: "$35.000 ARS",
+    cv: "$28.000 ARS",
+    cv_linkedin: "$45.000 ARS",
+    talleres: "Consultar cupos"
   }
-];
-
-// Elementos del DOM
-const jobsContainer = document.getElementById('jobs-container');
-const searchInput = document.getElementById('job-search-input');
-const filterPills = document.getElementById('filter-pills');
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-const applyModal = document.getElementById('apply-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalJobTitle = document.getElementById('modal-job-title');
-const applyForm = document.getElementById('apply-form');
-const contactForm = document.getElementById('contact-form');
-const toast = document.getElementById('toast');
-const currentYearSpan = document.getElementById('current-year');
-
-// Establecer año actual en el footer
-if (currentYearSpan) {
-  currentYearSpan.textContent = new Date().getFullYear();
-}
-
-// Variables de estado
-let activeCategory = 'all';
-let searchQuery = '';
-
-// Renderizar vacantes
-function renderJobs() {
-  if (!jobsContainer) return;
-
-  const filteredJobs = jobListings.filter(job => {
-    const matchesCategory = activeCategory === 'all' || job.category === activeCategory;
-    const matchesSearch = 
-      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
-  });
-
-  if (filteredJobs.length === 0) {
-    jobsContainer.innerHTML = `
-      <div style="text-align: center; padding: 3rem 1rem; background: #ffffff; border-radius: 12px; border: 1px dashed var(--border-color);">
-        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem;">No se encontraron vacantes con los criterios seleccionados.</p>
-        <button class="btn btn-secondary" onclick="resetFilters()">Restablecer Filtros</button>
-      </div>
-    `;
-    return;
-  }
-
-  jobsContainer.innerHTML = filteredJobs.map(job => `
-    <article class="job-item">
-      <div class="job-info">
-        <div class="job-header-row">
-          <h3 class="job-title">${escapeHtml(job.title)}</h3>
-          <span class="job-badge ${job.modalityClass}">${job.modality}</span>
-        </div>
-        <div class="job-meta">
-          <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            ${escapeHtml(job.location)}
-          </span>
-          <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-            ${escapeHtml(job.type)}
-          </span>
-        </div>
-        <p class="job-description">${escapeHtml(job.description)}</p>
-        <div class="job-tags">
-          ${job.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
-        </div>
-      </div>
-      <div>
-        <button class="btn btn-primary" onclick="openApplyModal('${escapeHtml(job.title)}')">
-          Postularme
-        </button>
-      </div>
-    </article>
-  `).join('');
-}
-
-// Filtros por categoría
-if (filterPills) {
-  filterPills.addEventListener('click', (e) => {
-    if (e.target.classList.contains('filter-btn')) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      e.target.classList.add('active');
-      activeCategory = e.target.getAttribute('data-category');
-      renderJobs();
-    }
-  });
-}
-
-// Búsqueda por texto
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value.trim();
-    renderJobs();
-  });
-}
-
-// Restablecer filtros
-window.resetFilters = function() {
-  activeCategory = 'all';
-  searchQuery = '';
-  if (searchInput) searchInput.value = '';
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-category') === 'all');
-  });
-  renderJobs();
 };
 
-// Menú móvil responsive
-if (menuToggle && navMenu) {
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
+// ============================================================================
+// INFORMACIÓN DE LOS SERVICIOS Y POP-UPS
+// ============================================================================
+const SERVICES_DATA = {
+  asesoria: {
+    title: "Asesoría Laboral 1:1",
+    category: "SESIÓN INDIVIDUAL",
+    priceKey: "asesoria",
+    desc: "Sesión personalizada de 60 minutos enfocada 100% en tus metas laborales para potenciar tu seguridad y destacar en entrevistas.",
+    features: [
+      "Diagnóstico profundo de tu perfil y momento profesional actual.",
+      "Simulación de entrevistas por competencias utilizando el método STAR.",
+      "Feedback constructivo sobre tu comunicación verbal y no verbal.",
+      "Estrategia personalizada para negociación salarial y preguntas difíciles.",
+      "Plan de acción con pasos concretos para tus próximas postulaciones."
+    ],
+    duration: "60 minutos (En vivo)",
+    modality: "Google Meet o Zoom",
+    waMessage: "¡Hola Fátima! Me interesa agendar la Asesoría Laboral 1:1. ¿Qué días y horarios tienes disponibles?"
+  },
 
-  // Cerrar menú al hacer clic en un enlace
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-    });
-  });
+  cv: {
+    title: "Optimización Estratégica de CV",
+    category: "REDACCIÓN & DISEÑO",
+    priceKey: "cv",
+    desc: "Transformamos tu CV en una herramienta de alto impacto optimizada para superar los filtros ATS y captar el interés de reclutadores en los primeros 6 segundos.",
+    features: [
+      "Estructura moderna y 100% compatible con filtros ATS (Applicant Tracking Systems).",
+      "Redacción estratégica enfocada en logros medibles, funciones clave y palabras clave.",
+      "Eliminación de información redundante para lograr un CV conciso de 1 o 2 páginas.",
+      "Entrega en formato PDF listo para enviar y formato editable (Word/Google Docs).",
+      "1 ronda de revisiones y ajustes incluida."
+    ],
+    duration: "Entrega en 3 a 5 días hábiles",
+    modality: "100% Online (Asincrónico)",
+    waMessage: "¡Hola Fátima! Quiero optimizar mi CV para tener más entrevistas. ¿Cómo comenzamos?"
+  },
+
+  cv_linkedin: {
+    title: "Pack Completo: CV + LinkedIn ⭐",
+    category: "TRANSFORMACIÓN INTEGRAL",
+    priceKey: "cv_linkedin",
+    desc: "La solución definitiva para que no solo postules con éxito, sino para que sean los reclutadores quienes te encuentren y te contacten primero.",
+    features: [
+      "Todo lo incluido en la Optimización Estratégica de CV.",
+      "Optimización integral de tu perfil de LinkedIn (Titular magnético y sección 'Acerca de').",
+      "Estrategia de palabras clave SEO para posicionarte en las búsquedas de reclutadores.",
+      "Estructuración de tu experiencia, aptitudes y recomendaciones.",
+      "Guía práctica de networking efectivo para conectar con decisores en tu área."
+    ],
+    duration: "Entrega en 5 a 7 días hábiles",
+    modality: "100% Online",
+    waMessage: "¡Hola Fátima! Me gustaría contratar el Pack Completo de CV + LinkedIn. ¿Cómo coordinamos?"
+  },
+
+  talleres: {
+    title: "Talleres de CV (Workshops Grupales)",
+    category: "CAPACITACIÓN & PRÁCTICA",
+    priceKey: "talleres",
+    desc: "Workshops prácticos e interactivos en vivo donde aprenderás los secretos del reclutamiento actual para armar tu CV ganador.",
+    features: [
+      "Clase online en vivo de 2 horas con espacio para dudas y preguntas.",
+      "Análisis de casos reales y errores comunes que descartan candidatos.",
+      "Plantillas descargables en formatos profesionales y editables.",
+      "Checklist paso a paso para auditar tu propio CV.",
+      "Grabación del taller con acceso durante 30 días."
+    ],
+    duration: "2 horas en vivo",
+    modality: "Vía Zoom / Google Meet",
+    waMessage: "¡Hola Fátima! Quisiera consultar por las próximas fechas y cupos disponibles para el Taller de CV."
+  }
+};
+
+// ============================================================================
+// ELEMENTOS DEL DOM
+// ============================================================================
+const serviceModal = document.getElementById('service-modal');
+const contactModal = document.getElementById('contact-modal');
+
+const modalTitle = document.getElementById('modal-title');
+const modalCategory = document.getElementById('modal-category');
+const modalPrice = document.getElementById('modal-price');
+const modalDesc = document.getElementById('modal-desc');
+const modalFeatures = document.getElementById('modal-features');
+const modalDuration = document.getElementById('modal-duration');
+const modalModality = document.getElementById('modal-modality');
+const modalMpBtn = document.getElementById('modal-mp-btn');
+const modalWaBtn = document.getElementById('modal-wa-btn');
+
+// Redes sociales principales
+const socialWa = document.getElementById('social-wa');
+const socialLi = document.getElementById('social-li');
+const socialIg = document.getElementById('social-ig');
+const socialMail = document.getElementById('social-mail');
+
+// Contacto modal
+const directWaLink = document.getElementById('direct-wa-link');
+const directLiLink = document.getElementById('direct-li-link');
+const directMailLink = document.getElementById('direct-mail-link');
+const displayEmail = document.getElementById('display-email');
+const currentYear = document.getElementById('current-year');
+
+// ============================================================================
+// INICIALIZACIÓN DE ENLACES
+// ============================================================================
+function initLinks() {
+  const defaultWaText = encodeURIComponent("¡Hola Fátima! Me comunico desde tu página web para hacerte una consulta.");
+  const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${defaultWaText}`;
+  const mailUrl = `mailto:${CONFIG.email}`;
+
+  if (socialWa) socialWa.href = waUrl;
+  if (socialLi) socialLi.href = CONFIG.linkedinUrl;
+  if (socialIg) socialIg.href = CONFIG.instagramUrl;
+  if (socialMail) socialMail.href = mailUrl;
+
+  if (directWaLink) directWaLink.href = waUrl;
+  if (directLiLink) directLiLink.href = CONFIG.linkedinUrl;
+  if (directMailLink) directMailLink.href = mailUrl;
+  if (displayEmail) displayEmail.textContent = CONFIG.email;
+
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
 }
 
-// Modal de postulación
-window.openApplyModal = function(jobTitle) {
-  if (!applyModal) return;
-  modalTitle.textContent = `Postular a: ${jobTitle}`;
-  modalJobTitle.value = jobTitle;
-  applyModal.classList.add('active');
+// ============================================================================
+// FUNCIONES DEL MODAL DE SERVICIOS (PUSH-UP)
+// ============================================================================
+window.openServiceModal = function(serviceKey) {
+  const service = SERVICES_DATA[serviceKey];
+  if (!service) return;
+
+  modalTitle.textContent = service.title;
+  modalCategory.textContent = service.category;
+  modalPrice.textContent = CONFIG.prices[service.priceKey] || "Consultar";
+  modalDesc.textContent = service.desc;
+  modalDuration.textContent = service.duration;
+  modalModality.textContent = service.modality;
+
+  // Llenar la lista de beneficios con tildes verdes
+  modalFeatures.innerHTML = service.features.map(feat => `
+    <li>
+      <span class="check-icon">✓</span>
+      <span>${escapeHtml(feat)}</span>
+    </li>
+  `).join('');
+
+  // Configurar botón de WhatsApp
+  const waEncoded = encodeURIComponent(service.waMessage);
+  modalWaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${waEncoded}`;
+
+  // Configurar botón de Mercado Pago
+  const mpLink = CONFIG.mercadoPagoLinks[serviceKey];
+  if (mpLink && mpLink.trim() !== "") {
+    modalMpBtn.href = mpLink;
+    modalMpBtn.style.display = "flex";
+  } else {
+    // Si aún no ha configurado el link de Mercado Pago, redirige amablemente a WhatsApp para coordinar el pago
+    const mpWaText = encodeURIComponent(`¡Hola Fátima! Deseo contratar "${service.title}" y pagar mediante Mercado Pago. ¿Me envías el link de pago?`);
+    modalMpBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${mpWaText}`;
+    modalMpBtn.style.display = "flex";
+  }
+
+  // Abrir modal con animación
+  serviceModal.classList.add('active');
+  serviceModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 };
 
-window.closeApplyModal = function() {
-  if (!applyModal) return;
-  applyModal.classList.remove('active');
+window.closeServiceModal = function() {
+  serviceModal.classList.remove('active');
+  serviceModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  if (applyForm) applyForm.reset();
 };
 
-// Cerrar modal al hacer clic en el backdrop
-if (applyModal) {
-  applyModal.addEventListener('click', (e) => {
-    if (e.target === applyModal) {
-      closeApplyModal();
-    }
+// ============================================================================
+// MODAL DE CONTACTO
+// ============================================================================
+window.openContactModal = function() {
+  contactModal.classList.add('active');
+  contactModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeContactModal = function() {
+  contactModal.classList.remove('active');
+  contactModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+// ============================================================================
+// CERRAR AL TOCAR EL BACKDROP O CON ESCAPAR
+// ============================================================================
+if (serviceModal) {
+  serviceModal.addEventListener('click', (e) => {
+    if (e.target === serviceModal) closeServiceModal();
   });
 }
 
-// Envío del formulario de postulación
-if (applyForm) {
-  applyForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const applicantName = document.getElementById('applicant-name').value;
-    const position = modalJobTitle.value;
-
-    closeApplyModal();
-    showToast(`¡Gracias ${applicantName}! Tu postulación para "${position}" ha sido enviada con éxito.`);
+if (contactModal) {
+  contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) closeContactModal();
   });
 }
 
-// Envío del formulario de contacto
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('contact-name').value;
-    showToast(`¡Gracias ${name}! Hemos recibido tu consulta. Nos contactaremos a la brevedad.`);
-    contactForm.reset();
-  });
-}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeServiceModal();
+    closeContactModal();
+  }
+});
 
-// Mostrar Toast
-function showToast(message) {
-  if (!toast) return;
-  toast.innerHTML = `
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-    </svg>
-    <span>${escapeHtml(message)}</span>
-  `;
-  toast.classList.add('show');
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 4500);
-}
-
-// Utilidad para prevenir inyecciones XSS
+// Utilidad para seguridad
 function escapeHtml(string) {
   if (!string) return '';
   return String(string)
@@ -270,7 +253,7 @@ function escapeHtml(string) {
     .replace(/'/g, '&#039;');
 }
 
-// Iniciar aplicación
+// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
-  renderJobs();
+  initLinks();
 });
