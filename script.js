@@ -1,11 +1,9 @@
 // ============================================================================
 // CONFIGURACIÓN PERSONALIZABLE DE FÁTIMA QUEVEDO
-// Puedes modificar tus enlaces, número de WhatsApp y precios aquí mismo:
 // ============================================================================
 const CONFIG = {
-  // Tu número de WhatsApp con código de país (Ej: 54911... para Argentina)
-  // Reemplaza "5491123456789" por tu número real cuando lo desees:
-  whatsappNumber: "5491123456789",
+  // Tu número de WhatsApp con código de país para Argentina (54 9 + código de área sin el 0 + número)
+  whatsappNumber: "5492612556719",
 
   // Correo de contacto
   email: "fatimaquevedom@outlook.com",
@@ -20,15 +18,15 @@ const CONFIG = {
     asesoria: "",      // Ejemplo: "https://mpago.la/1A2B3C"
     cv: "",            // Ejemplo: "https://mpago.la/4D5E6F"
     cv_linkedin: "",   // Ejemplo: "https://mpago.la/7G8H9I"
-    talleres: ""       // Ejemplo: "https://mpago.la/0J1K2L"
+    talleres: ""       // Los talleres son informativos (sin compra directa por ahora)
   },
 
-  // Precios sugeridos (puedes cambiarlos cuando quieras):
+  // Precios acordados:
   prices: {
-    asesoria: "$35.000 ARS",
-    cv: "$28.000 ARS",
-    cv_linkedin: "$45.000 ARS",
-    talleres: "Consultar cupos"
+    asesoria: "$20.000 ARS",
+    cv: "$15.000 ARS",
+    cv_linkedin: "$25.000 ARS",
+    talleres: "1 vez por mes"
   }
 };
 
@@ -67,7 +65,7 @@ const SERVICES_DATA = {
     ],
     duration: "Entrega en 3 a 5 días hábiles",
     modality: "100% Online (Asincrónico)",
-    waMessage: "¡Hola Fátima! Quiero optimizar mi CV para tener más entrevistas. ¿Cómo comenzamos?"
+    waMessage: "¡Hola Fátima! Quiero optimizar mi CV por $15.000 ARS. ¿Cómo comenzamos?"
   },
 
   cv_linkedin: {
@@ -84,24 +82,25 @@ const SERVICES_DATA = {
     ],
     duration: "Entrega en 5 a 7 días hábiles",
     modality: "100% Online",
-    waMessage: "¡Hola Fátima! Me gustaría contratar el Pack Completo de CV + LinkedIn. ¿Cómo coordinamos?"
+    waMessage: "¡Hola Fátima! Me gustaría contratar el Pack Completo de CV + LinkedIn por $25.000 ARS. ¿Cómo coordinamos?"
   },
 
   talleres: {
     title: "Talleres de CV (Workshops Grupales)",
-    category: "CAPACITACIÓN & PRÁCTICA",
+    category: "MODALIDAD MENSUAL",
     priceKey: "talleres",
-    desc: "Workshops prácticos e interactivos en vivo donde aprenderás los secretos del reclutamiento actual para armar tu CV ganador.",
+    desc: "Capacitaciones grupales en vivo dictadas 1 vez por mes. Aprende las mejores estrategias del mercado laboral actual para armar tu CV ganador, con cupos reducidos para asegurar una atención personalizada.",
     features: [
-      "Clase online en vivo de 2 horas con espacio para dudas y preguntas.",
+      "Frecuencia mensual: Los talleres se dictan 1 vez por mes.",
+      "Clase online en vivo de 2 horas con espacio abierto para dudas y preguntas.",
       "Análisis de casos reales y errores comunes que descartan candidatos.",
-      "Plantillas descargables en formatos profesionales y editables.",
+      "Plantillas descargables en formatos profesionales y 100% editables.",
       "Checklist paso a paso para auditar tu propio CV.",
       "Grabación del taller con acceso durante 30 días."
     ],
-    duration: "2 horas en vivo",
+    duration: "1 encuentro mensual (2 horas)",
     modality: "Vía Zoom / Google Meet",
-    waMessage: "¡Hola Fátima! Quisiera consultar por las próximas fechas y cupos disponibles para el Taller de CV."
+    waMessage: "¡Hola Fátima! Quisiera consultar sobre las próximas fechas y temáticas del Taller de CV mensual."
   }
 };
 
@@ -120,6 +119,7 @@ const modalDuration = document.getElementById('modal-duration');
 const modalModality = document.getElementById('modal-modality');
 const modalMpBtn = document.getElementById('modal-mp-btn');
 const modalWaBtn = document.getElementById('modal-wa-btn');
+const modalWaText = document.getElementById('modal-wa-text');
 
 // Redes sociales principales
 const socialWa = document.getElementById('social-wa');
@@ -181,16 +181,24 @@ window.openServiceModal = function(serviceKey) {
   const waEncoded = encodeURIComponent(service.waMessage);
   modalWaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${waEncoded}`;
 
-  // Configurar botón de Mercado Pago
-  const mpLink = CONFIG.mercadoPagoLinks[serviceKey];
-  if (mpLink && mpLink.trim() !== "") {
-    modalMpBtn.href = mpLink;
-    modalMpBtn.style.display = "flex";
+  // Comportamiento especial para TALLERES (Modalidad informativa, sin botón de compra directa)
+  if (serviceKey === 'talleres') {
+    modalMpBtn.style.display = "none"; // Ocultar Mercado Pago para talleres
+    if (modalWaText) modalWaText.textContent = "Consultar próximas fechas por WhatsApp";
   } else {
-    // Si aún no ha configurado el link de Mercado Pago, redirige amablemente a WhatsApp para coordinar el pago
-    const mpWaText = encodeURIComponent(`¡Hola Fátima! Deseo contratar "${service.title}" y pagar mediante Mercado Pago. ¿Me envías el link de pago?`);
-    modalMpBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${mpWaText}`;
-    modalMpBtn.style.display = "flex";
+    // Para los demás servicios: mostrar Mercado Pago y WhatsApp
+    if (modalWaText) modalWaText.textContent = "Consultar o Agendar por WhatsApp";
+
+    const mpLink = CONFIG.mercadoPagoLinks[serviceKey];
+    if (mpLink && mpLink.trim() !== "") {
+      modalMpBtn.href = mpLink;
+      modalMpBtn.style.display = "flex";
+    } else {
+      // Si aún no hay link cargado, redirige a WhatsApp con mensaje para pedir el link
+      const mpWaText = encodeURIComponent(`¡Hola Fátima! Deseo contratar "${service.title}" y pagar con Mercado Pago. ¿Me envías el link de pago?`);
+      modalMpBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${mpWaText}`;
+      modalMpBtn.style.display = "flex";
+    }
   }
 
   // Abrir modal con animación
