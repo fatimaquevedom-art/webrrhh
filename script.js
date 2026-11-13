@@ -1,106 +1,140 @@
 // ============================================================================
-// CONFIGURACIÓN PERSONALIZABLE DE FÁTIMA QUEVEDO
+// CONFIGURACIÓN DE MARCA PERSONAL — FÁTIMA QUEVEDO (RRHH & EMPLEABILIDAD)
+// Basado 100% en MARCA.md
 // ============================================================================
 const CONFIG = {
-  // Tu número de WhatsApp con código de país para Argentina (54 9 + código de área sin el 0 + número)
+  // Contacto directo por WhatsApp (Prioritario)
   whatsappNumber: "5492612556719",
 
   // Correo de contacto
   email: "fatimaquevedom@outlook.com",
 
-  // Redes Sociales
+  // Redes Sociales (@fatima.rrhh y LinkedIn Profesional)
   linkedinUrl: "https://www.linkedin.com/in/fatimaquevedom",
-  instagramUrl: "https://www.instagram.com/",
+  instagramUrl: "https://www.instagram.com/fatima.rrhh",
 
-  // Links de cobro de Mercado Pago para cada servicio:
-  // (Pega aquí tus links de Mercado Pago como https://mpago.la/xxxxxx)
+  // Agendamiento Directo (Calendly) y Relevamiento (Google Forms)
+  // Si aún no hay URL pública cargada, redirige automáticamente a WhatsApp con el mensaje predefinido
+  calendlyUrl: "",
+  googleFormsUrl: "",
+
+  // Links de cobro de Mercado Pago para cada servicio (opcional):
   mercadoPagoLinks: {
-    asesoria: "",      // Ejemplo: "https://mpago.la/1A2B3C"
-    cv: "",            // Ejemplo: "https://mpago.la/4D5E6F"
-    cv_linkedin: "",   // Ejemplo: "https://mpago.la/7G8H9I"
-    talleres: ""       // Los talleres son informativos (sin compra directa por ahora)
-  },
-
-  // Precios acordados:
-  prices: {
-    asesoria: "$20.000 ARS",
-    cv: "$15.000 ARS",
-    cv_linkedin: "$25.000 ARS",
-    talleres: "1 vez por mes"
+    cv: "",
+    cv_linkedin: "",
+    sesion_1a1: "",
+    combo_completo: ""
   }
 };
 
 // ============================================================================
-// INFORMACIÓN DE LOS SERVICIOS Y POP-UPS
+// ARQUITECTURA DE SERVICIOS Y PRECIOS EXACTOS (MARCA.md)
 // ============================================================================
 const SERVICES_DATA = {
-  asesoria: {
-    title: "Asesoría Laboral 1:1",
-    category: "SESIÓN INDIVIDUAL",
-    priceKey: "asesoria",
-    desc: "Sesión personalizada de 60 minutos enfocada 100% en tus metas laborales para potenciar tu seguridad y destacar en entrevistas.",
-    features: [
-      "Diagnóstico profundo de tu perfil y momento profesional actual.",
-      "Simulación de entrevistas por competencias utilizando el método STAR.",
-      "Feedback constructivo sobre tu comunicación verbal y no verbal.",
-      "Estrategia personalizada para negociación salarial y preguntas difíciles.",
-      "Plan de acción con pasos concretos para tus próximas postulaciones."
-    ],
-    duration: "60 minutos (En vivo)",
-    modality: "Google Meet o Zoom",
-    waMessage: "¡Hola Fátima! Me interesa agendar la Asesoría Laboral 1:1. ¿Qué días y horarios tienes disponibles?"
-  },
-
+  // Servicio 1: Servicio Gancho — Armado de CV Optimizado
   cv: {
-    title: "Optimización Estratégica de CV",
-    category: "REDACCIÓN & DISEÑO",
-    priceKey: "cv",
-    desc: "Transformamos tu CV en una herramienta de alto impacto optimizada para superar los filtros ATS y captar el interés de reclutadores en los primeros 6 segundos.",
+    title: "Armado de CV Optimizado",
+    category: "SERVICIO GANCHO · PRECIO LANZAMIENTO (10 CUPOS)",
+    launchPrice: "$12.000 ARS / $10 USD",
+    regularPriceHtml: "Precio Regular: <s>$20.000 ARS</s> / <s>$18 USD</s>",
+    desc: "Redacción de CV optimizado para filtros ATS (formato editable + PDF) + llamada corta de 10-15 minutos o devolución en video (Loom) + consultas por chat.",
     features: [
-      "Estructura moderna y 100% compatible con filtros ATS (Applicant Tracking Systems).",
-      "Redacción estratégica enfocada en logros medibles, funciones clave y palabras clave.",
-      "Eliminación de información redundante para lograr un CV conciso de 1 o 2 páginas.",
-      "Entrega en formato PDF listo para enviar y formato editable (Word/Google Docs).",
-      "1 ronda de revisiones y ajustes incluida."
+      "Redacción de CV optimizado para superar filtros ATS reales y lectura de reclutadores.",
+      "Entrega en formato editable (Word / Google Docs) + archivo PDF listo para postular.",
+      "Llamada corta de 10-15 minutos o devolución personalizada en video (Loom).",
+      "Consultas y acompañamiento por chat para despejar tus dudas.",
+      "Relevamiento ordenado mediante formulario de Google Forms post-contratación."
     ],
-    duration: "Entrega en 3 a 5 días hábiles",
-    modality: "100% Online (Asincrónico)",
-    waMessage: "¡Hola Fátima! Quiero optimizar mi CV por $15.000 ARS. ¿Cómo comenzamos?"
+    duration: "48 hs hábiles (con info completa)",
+    modality: "Online · Forms + Loom / Llamada",
+    hasCalendly: false,
+    isCommunity: false,
+    waMessage: "¡Hola Fátima! Quiero aprovechar el Precio Lanzamiento ($12.000 ARS / $10 USD) del servicio Armado de CV Optimizado. ¿Cómo comenzamos?"
   },
 
+  // Servicio 2: Servicio Core — Pack CV + LinkedIn Optimizado
   cv_linkedin: {
-    title: "Pack Completo: CV + LinkedIn ⭐",
-    category: "TRANSFORMACIÓN INTEGRAL",
-    priceKey: "cv_linkedin",
-    desc: "La solución definitiva para que no solo postules con éxito, sino para que sean los reclutadores quienes te encuentren y te contacten primero.",
+    title: "Pack CV + LinkedIn Optimizado",
+    category: "SERVICIO CORE · PRECIO LANZAMIENTO (10 CUPOS)",
+    launchPrice: "$35.000 ARS / $30 USD",
+    regularPriceHtml: "Precio Regular: <s>$45.000 ARS</s> / <s>$40 USD</s>",
+    desc: "CV optimizado para filtros ATS (editable + PDF) + optimización integral de perfil de LinkedIn (Titular SEO, Acerca de con storytelling, experiencias y palabras clave) + guía de uso + consultas por chat + 1 revisión incluida.",
     features: [
-      "Todo lo incluido en la Optimización Estratégica de CV.",
-      "Optimización integral de tu perfil de LinkedIn (Titular magnético y sección 'Acerca de').",
-      "Estrategia de palabras clave SEO para posicionarte en las búsquedas de reclutadores.",
-      "Estructuración de tu experiencia, aptitudes y recomendaciones.",
-      "Guía práctica de networking efectivo para conectar con decisores en tu área."
+      "CV optimizado para filtros ATS en formato editable + PDF.",
+      "Optimización integral de perfil de LinkedIn: Titular SEO, sección 'Acerca de' con storytelling, experiencias y palabras clave estratégicas.",
+      "Guía práctica de uso para sacarle provecho a tu perfil y atraer reclutadores.",
+      "Consultas por chat durante el proceso.",
+      "1 revisión incluida para ajustar detalles.",
+      "Relevamiento inicial mediante formulario de Google Forms post-contratación."
     ],
-    duration: "Entrega en 5 a 7 días hábiles",
-    modality: "100% Online",
-    waMessage: "¡Hola Fátima! Me gustaría contratar el Pack Completo de CV + LinkedIn por $25.000 ARS. ¿Cómo coordinamos?"
+    duration: "48 hs hábiles (con info completa)",
+    modality: "100% Online · Forms + Chat",
+    hasCalendly: false,
+    isCommunity: false,
+    waMessage: "¡Hola Fátima! Me interesa el Pack CV + LinkedIn Optimizado a Precio Lanzamiento ($35.000 ARS / $30 USD). ¿Cómo coordinamos?"
   },
 
-  talleres: {
-    title: "Talleres de CV (Workshops Grupales)",
-    category: "MODALIDAD MENSUAL",
-    priceKey: "talleres",
-    desc: "Capacitaciones grupales en vivo dictadas 1 vez por mes. Aprende las mejores estrategias del mercado laboral actual para armar tu CV ganador, con cupos reducidos para asegurar una atención personalizada.",
+  // Servicio 3: Sesión 1:1 de Estrategia o Entrevistas (60 min)
+  sesion_1a1: {
+    title: "Sesión 1:1 de Estrategia o Entrevistas (60 min)",
+    category: "SESIÓN 1:1 EN VIVO · PRECIO LANZAMIENTO (10 CUPOS)",
+    launchPrice: "$25.000 ARS / $22 USD",
+    regularPriceHtml: "Precio Regular: <s>$40.000 ARS</s> / <s>$35 USD</s>",
+    desc: "Videollamada personalizada por Google Meet (60 minutos) enfocada en simulacro de entrevista con feedback real o planificación de cambio de rumbo laboral + resumen escrito post-sesión con plan de acción.",
     features: [
-      "Frecuencia mensual: Los talleres se dictan 1 vez por mes.",
-      "Clase online en vivo de 2 horas con espacio abierto para dudas y preguntas.",
-      "Análisis de casos reales y errores comunes que descartan candidatos.",
-      "Plantillas descargables en formatos profesionales y 100% editables.",
-      "Checklist paso a paso para auditar tu propio CV.",
-      "Grabación del taller con acceso durante 30 días."
+      "Videollamada personalizada 1:1 de 60 minutos por Google Meet.",
+      "Simulacro de entrevista con feedback real desde la mirada de selección en consultora.",
+      "O planificación estratégica de cambio de rumbo laboral / transición de carrera.",
+      "Resumen escrito post-sesión con plan de acción claro y accionable.",
+      "Agendamiento directo según tu disponibilidad."
     ],
-    duration: "1 encuentro mensual (2 horas)",
-    modality: "Vía Zoom / Google Meet",
-    waMessage: "¡Hola Fátima! Quisiera consultar sobre las próximas fechas y temáticas del Taller de CV mensual."
+    duration: "60 minutos en vivo + Resumen escrito",
+    modality: "Google Meet (1:1)",
+    hasCalendly: true,
+    isCommunity: false,
+    waMessage: "¡Hola Fátima! Quiero reservar una Sesión 1:1 de Estrategia o Entrevistas (60 min) a Precio Lanzamiento ($25.000 ARS / $22 USD). ¿Qué horarios tenés disponibles?"
+  },
+
+  // Servicio 4 (Destacado / Más Elegido): Combo Completo (Pack + Sesión 1:1)
+  combo_completo: {
+    title: "Combo Completo (Pack CV + LinkedIn + Sesión 1:1)",
+    category: "⭐ MÁS ELEGIDO · PRECIO LANZAMIENTO (10 CUPOS)",
+    launchPrice: "$40.000 ARS / $35 USD",
+    regularPriceHtml: "Precio Regular: <s>$75.000 ARS</s> / <s>$65 USD</s>",
+    desc: "Incluye todo el Pack CV + LinkedIn Optimizado (entrega en 48 hs hábiles + 1 revisión) + Sesión 1:1 en vivo de 60 minutos por Google Meet + resumen escrito y soporte por chat.",
+    features: [
+      "Pack completo de CV optimizado para filtros ATS (editable + PDF).",
+      "Optimización integral de perfil de LinkedIn (Titular SEO, Acerca de con storytelling, experiencias y palabras clave) + guía de uso + 1 revisión.",
+      "Entrega de materiales en 48 hs hábiles (una vez recibida la información completa en Google Forms).",
+      "Sesión 1:1 en vivo de 60 minutos por Google Meet (simulacro de entrevista o estrategia de carrera).",
+      "Resumen escrito post-sesión con plan de acción + soporte directo por chat."
+    ],
+    duration: "Entrega 48 hs hábiles + Sesión 60 min",
+    modality: "Google Meet + Forms + Chat",
+    hasCalendly: true,
+    isCommunity: false,
+    waMessage: "¡Hola Fátima! Quiero reservar un cupo del Combo Completo (Pack CV + LinkedIn + Sesión 1:1) a Precio Lanzamiento ($40.000 ARS / $35 USD). ¿Cómo empezamos?"
+  },
+
+  // Sección Especial / Aporte Comunitario: Orientación para Emigrar / Working Holiday (Ad Honorem)
+  australia_ad_honorem: {
+    title: "Orientación para Emigrar / Working Holiday (Ad Honorem)",
+    category: "🌱 100% GRATUITO · APORTE A LA COMUNIDAD",
+    launchPrice: "100% Gratuito (Ad Honorem)",
+    regularPriceHtml: "Por convicción ética y espíritu comunitario",
+    desc: "Acompañamiento solidario basado en experiencia real viviendo y trabajando 2 años en Australia. Incluye consejos reales sobre búsqueda laboral en el exterior y armado de CV simple para trabajos operativos / hospitality (sin costo, por convicción ética y espíritu comunitario).",
+    features: [
+      "Modalidad 100% Gratuita / Aporte a la Comunidad (Ad Honorem).",
+      "Orientación real basada en mi experiencia viviendo y trabajando 2 años en Australia.",
+      "Consejos prácticos sobre cómo encarar la búsqueda laboral en el exterior desde cero.",
+      "Guía y criterios para el armado de CV simple (formato Aussie resume) enfocado en trabajos operativos / hospitality.",
+      "Espacio cercano y empático para sacarte miedos antes de viajar o al recién llegar."
+    ],
+    duration: "A coordinar según disponibilidad",
+    modality: "100% Gratuito · Online / WhatsApp",
+    hasCalendly: false,
+    isCommunity: true,
+    waMessage: "¡Hola Fátima! Vi en tu web el espacio de Orientación para Emigrar / Working Holiday (Ad Honorem) y me encantaría hacerte unas consultas sobre tu experiencia en Australia."
   }
 };
 
@@ -113,11 +147,13 @@ const contactModal = document.getElementById('contact-modal');
 const modalTitle = document.getElementById('modal-title');
 const modalCategory = document.getElementById('modal-category');
 const modalPrice = document.getElementById('modal-price');
+const modalPriceRegular = document.getElementById('modal-price-regular');
 const modalDesc = document.getElementById('modal-desc');
 const modalFeatures = document.getElementById('modal-features');
 const modalDuration = document.getElementById('modal-duration');
 const modalModality = document.getElementById('modal-modality');
 const modalMpBtn = document.getElementById('modal-mp-btn');
+const modalCalendlyBtn = document.getElementById('modal-calendly-btn');
 const modalWaBtn = document.getElementById('modal-wa-btn');
 const modalWaText = document.getElementById('modal-wa-text');
 
@@ -126,9 +162,12 @@ const socialWa = document.getElementById('social-wa');
 const socialLi = document.getElementById('social-li');
 const socialIg = document.getElementById('social-ig');
 const socialMail = document.getElementById('social-mail');
+const heroWaBtn = document.getElementById('hero-wa-btn');
+const floatingWaBtn = document.getElementById('floating-wa-btn');
 
 // Contacto modal
 const directWaLink = document.getElementById('direct-wa-link');
+const directIgLink = document.getElementById('direct-ig-link');
 const directLiLink = document.getElementById('direct-li-link');
 const directMailLink = document.getElementById('direct-mail-link');
 const displayEmail = document.getElementById('display-email');
@@ -138,16 +177,19 @@ const currentYear = document.getElementById('current-year');
 // INICIALIZACIÓN DE ENLACES
 // ============================================================================
 function initLinks() {
-  const defaultWaText = encodeURIComponent("¡Hola Fátima! Me comunico desde tu página web para hacerte una consulta.");
+  const defaultWaText = encodeURIComponent("¡Hola Fátima! Vengo de tu web y me gustaría hacerte una consulta antes de contratar.");
   const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${defaultWaText}`;
   const mailUrl = `mailto:${CONFIG.email}`;
 
   if (socialWa) socialWa.href = waUrl;
+  if (heroWaBtn) heroWaBtn.href = waUrl;
+  if (floatingWaBtn) floatingWaBtn.href = waUrl;
   if (socialLi) socialLi.href = CONFIG.linkedinUrl;
   if (socialIg) socialIg.href = CONFIG.instagramUrl;
   if (socialMail) socialMail.href = mailUrl;
 
   if (directWaLink) directWaLink.href = waUrl;
+  if (directIgLink) directIgLink.href = CONFIG.instagramUrl;
   if (directLiLink) directLiLink.href = CONFIG.linkedinUrl;
   if (directMailLink) directMailLink.href = mailUrl;
   if (displayEmail) displayEmail.textContent = CONFIG.email;
@@ -164,12 +206,22 @@ window.openServiceModal = function(serviceKey) {
 
   modalTitle.textContent = service.title;
   modalCategory.textContent = service.category;
-  modalPrice.textContent = CONFIG.prices[service.priceKey] || "Consultar";
+  modalPrice.textContent = service.launchPrice;
+  modalPriceRegular.innerHTML = service.regularPriceHtml || "";
   modalDesc.textContent = service.desc;
   modalDuration.textContent = service.duration;
   modalModality.textContent = service.modality;
 
-  // Llenar la lista de beneficios con tildes verdes
+  // Estilo de insignia según si es aporte comunitario o servicio con precio lanzamiento
+  if (service.isCommunity) {
+    modalCategory.classList.add('badge-community');
+    modalPrice.classList.add('free-tag');
+  } else {
+    modalCategory.classList.remove('badge-community');
+    modalPrice.classList.remove('free-tag');
+  }
+
+  // Llenar la lista de entregables
   modalFeatures.innerHTML = service.features.map(feat => `
     <li>
       <span class="check-icon">✓</span>
@@ -177,26 +229,42 @@ window.openServiceModal = function(serviceKey) {
     </li>
   `).join('');
 
-  // Configurar botón de WhatsApp
+  // Configurar botón prioritario de WhatsApp
   const waEncoded = encodeURIComponent(service.waMessage);
   modalWaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${waEncoded}`;
 
-  // Comportamiento especial para TALLERES (Modalidad informativa, sin botón de compra directa)
-  if (serviceKey === 'talleres') {
-    modalMpBtn.style.display = "none"; // Ocultar Mercado Pago para talleres
-    if (modalWaText) modalWaText.textContent = "Consultar próximas fechas por WhatsApp";
+  if (service.isCommunity) {
+    // Modalidad Ad Honorem: solo botón de WhatsApp solidario
+    if (modalWaText) modalWaText.textContent = "Escribir a Fátima por WhatsApp (Sin costo)";
+    if (modalMpBtn) modalMpBtn.style.display = "none";
+    if (modalCalendlyBtn) modalCalendlyBtn.style.display = "none";
   } else {
-    // Para los demás servicios: mostrar Mercado Pago y WhatsApp
-    if (modalWaText) modalWaText.textContent = "Consultar o Agendar por WhatsApp";
+    if (modalWaText) modalWaText.textContent = "Hablar con Fátima o Reservar por WhatsApp";
 
-    const mpLink = CONFIG.mercadoPagoLinks[serviceKey];
-    if (mpLink && mpLink.trim() !== "") {
-      modalMpBtn.href = mpLink;
-      modalMpBtn.style.display = "flex";
-    } else {
-      // Si aún no hay link cargado, redirige a WhatsApp con mensaje para pedir el link
-      const mpWaText = encodeURIComponent(`¡Hola Fátima! Deseo contratar "${service.title}" y pagar con Mercado Pago. ¿Me envías el link de pago?`);
-      modalMpBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${mpWaText}`;
+    // Botón Calendly para sesiones 1:1 y Combo Completo
+    if (modalCalendlyBtn) {
+      if (service.hasCalendly) {
+        if (CONFIG.calendlyUrl && CONFIG.calendlyUrl.trim() !== "") {
+          modalCalendlyBtn.href = CONFIG.calendlyUrl;
+        } else {
+          const calWaText = encodeURIComponent(`¡Hola Fátima! Quiero agendar mi sesión en Calendly para "${service.title}". ¿Me compartís el link de reserva?`);
+          modalCalendlyBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${calWaText}`;
+        }
+        modalCalendlyBtn.style.display = "flex";
+      } else {
+        modalCalendlyBtn.style.display = "none";
+      }
+    }
+
+    // Botón de Pago (Mercado Pago / Exterior USD)
+    if (modalMpBtn) {
+      const mpLink = CONFIG.mercadoPagoLinks[serviceKey];
+      if (mpLink && mpLink.trim() !== "") {
+        modalMpBtn.href = mpLink;
+      } else {
+        const mpWaText = encodeURIComponent(`¡Hola Fátima! Quiero contratar "${service.title}" a Precio Lanzamiento (${service.launchPrice}). ¿Me enviás los datos de pago y el formulario de relevamiento?`);
+        modalMpBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${mpWaText}`;
+      }
       modalMpBtn.style.display = "flex";
     }
   }
