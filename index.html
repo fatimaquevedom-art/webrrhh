@@ -3,505 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fátima Quevedo | RRHH & Carrera — Lic. en Recursos Humanos</title>
-  <meta name="description" content="Acompaño a personas que buscan trabajo, quieren cambiar de rumbo o animarse a una experiencia internacional a traducir su potencial en un CV y perfil de LinkedIn que pasen filtros reales.">
+  <title>Fátima Quevedo | RRHH & Carrera</title>
+  <meta name="description" content="Acompaño a personas que buscan trabajo o que quieren cambiar de rubro, a traducir su potencial en un currículum.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Fondo con degradado sutil -->
-  <div class="background-decorations">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+  <!-- Decoración suave de fondo -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="soft-blob blob-warm"></div>
+    <div class="soft-blob blob-sage"></div>
   </div>
 
-  <!-- Contenedor Principal -->
-  <main class="linktree-container">
+  <main class="page-wrapper">
 
-    <!-- 1. HERO / ENCABEZADO DE PERFIL -->
-    <header class="profile-header">
-      <div class="avatar-wrapper">
-        <div class="avatar-ring">
-          <div class="avatar-placeholder" id="avatar-container">
-            <span class="avatar-initials">FQ</span>
-          </div>
+    <!-- 1. HERO AMENO Y MINIMALISTA -->
+    <header class="hero-section">
+      <div class="brand-header">
+        <div class="avatar-circle">
+          <span>FQ</span>
         </div>
-        <span class="verified-badge" title="Licenciada en Recursos Humanos">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-          </svg>
-        </span>
+        <div class="brand-meta">
+          <span class="brand-name">Fátima Quevedo | RRHH &amp; Carrera</span>
+          <span class="brand-role">Lic. en Recursos Humanos · <a href="https://www.instagram.com/fatima.rrhh" target="_blank" rel="noopener">@fatima.rrhh</a></span>
+        </div>
       </div>
 
-      <span class="brand-tag">Licenciada en Recursos Humanos</span>
-      <h1 class="profile-name">Fátima Quevedo <span class="brand-divider">|</span> RRHH &amp; Carrera</h1>
-      <p class="profile-handle">@fatima.rrhh</p>
-
-      <p class="profile-bio">
-        Acompaño a personas que buscan trabajo, quieren cambiar de rumbo o animarse a una experiencia internacional a traducir su potencial en un CV y perfil de LinkedIn que pasen filtros reales — combinando la mirada de selección en consultora con la experiencia real de haberme reinventado trabajando fuera del país.
+      <h1 class="hero-title">Tu potencial, bien contado.</h1>
+      <p class="hero-subtitle">
+        Acompaño a personas que buscan trabajo o que quieren cambiar de rubro, a traducir su potencial en un currículum.
       </p>
 
-      <!-- CTA Prioritario de WhatsApp en Hero -->
-      <div class="hero-cta-group">
-        <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Vengo%20de%20tu%20web%20y%20me%20gustar%C3%ADa%20recibir%20orientaci%C3%B3n%20sobre%20tus%20servicios%20de%20empleabilidad." id="hero-wa-btn" class="primary-wa-cta" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-          </svg>
-          <span>Hablar con Fátima por WhatsApp</span>
-        </a>
-      </div>
-
-      <!-- Redes Sociales Rápidas -->
-      <div class="social-row">
-        <a href="https://wa.me/5492612556719" id="social-wa" class="social-btn" title="WhatsApp Directo" target="_blank" rel="noopener">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-          </svg>
-        </a>
-        <a href="https://www.instagram.com/fatima.rrhh" id="social-ig" class="social-btn" title="Instagram @fatima.rrhh" target="_blank" rel="noopener">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/fatimaquevedom" id="social-li" class="social-btn" title="LinkedIn Profesional" target="_blank" rel="noopener">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-        </a>
-        <a href="mailto:fatimaquevedom@outlook.com" id="social-mail" class="social-btn" title="Email" target="_blank" rel="noopener">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </a>
+      <div class="launch-banner-pill">
+        <span>✨ Precios de lanzamiento · Primeros 10 cupos disponibles</span>
       </div>
     </header>
 
-    <!-- 2. ARQUITECTURA DE SERVICIOS Y PRECIOS EXACTOS -->
-    <section class="services-list" aria-label="Servicios y Precios">
-      <div class="section-header-row">
-        <span class="list-label">SERVICIOS DE EMPLEABILIDAD</span>
-        <span class="launch-pill">🔥 PRECIO LANZAMIENTO · PRIMEROS 10 CUPOS</span>
-      </div>
+    <!-- 2. SERVICIOS Y PRECIOS (DE MENOR A MAYOR, DESTACANDO EL DEL MEDIO) -->
+    <section class="pricing-section" aria-label="Planes y Precios">
+      <div class="pricing-grid">
 
-      <!-- Servicio 4 (Destacado / Más Elegido): Combo Completo (Pack + Sesión 1:1) -->
-      <button class="link-card card-featured" onclick="openServiceModal('combo_completo')">
-        <div class="featured-badge">⭐ MÁS ELEGIDO · PRECIO LANZAMIENTO (10 CUPOS)</div>
-        <div class="card-icon icon-terracotta">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-        </div>
-        <div class="card-info">
-          <span class="card-title">Combo Completo (Pack CV + LinkedIn + Sesión 1:1)</span>
-          <span class="card-subtitle">Pack CV + LinkedIn (48 hs hábiles + 1 revisión) + Sesión 1:1 en vivo (60 min) + resumen y soporte</span>
-          <div class="card-price-row">
-            <span class="price-launch">$40.000 ARS / $35 USD</span>
-            <span class="price-regular"><s>$75.000 ARS</s> / <s>$65 USD</s></span>
+        <!-- Tarjeta 1 (Izquierda): Plan Básico — Solo CV -->
+        <article class="plan-card">
+          <div class="plan-header">
+            <span class="plan-label">Plan Básico</span>
+            <h2 class="plan-title">Solo CV</h2>
+            <div class="plan-price-block">
+              <div class="price-main">$12.000 <small>ARS</small> <span>/ $10 USD</span></div>
+              <div class="price-old">Regular: <s>$20.000 ARS</s> / <s>$18 USD</s></div>
+            </div>
           </div>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
 
-      <!-- Servicio 1: Servicio Gancho — Armado de CV Optimizado -->
-      <button class="link-card" onclick="openServiceModal('cv')">
-        <div class="card-icon icon-navy">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-        </div>
-        <div class="card-info">
-          <div class="card-topline">
-            <span class="service-tag">SERVICIO GANCHO · ENTREGA 48 HS HÁBILES</span>
-          </div>
-          <span class="card-title">Armado de CV Optimizado (Filtros ATS)</span>
-          <span class="card-subtitle">Formato editable + PDF + llamada corta (10-15 min) o video Loom + consultas por chat</span>
-          <div class="card-price-row">
-            <span class="price-launch">$12.000 ARS / $10 USD</span>
-            <span class="price-regular"><s>$20.000 ARS</s> / <s>$18 USD</s></span>
-          </div>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
+          <ul class="plan-features">
+            <li>
+              <span class="check">✓</span>
+              <span>Armado y redacción de CV optimizado para filtros ATS (editable + PDF).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Llamada corta de 10-15 min o devolución en video (Loom).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Consultas por chat.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span><strong>Entrega en 48 hs hábiles</strong> (con info completa).</span>
+            </li>
+          </ul>
 
-      <!-- Servicio 2: Servicio Core — Pack CV + LinkedIn Optimizado -->
-      <button class="link-card" onclick="openServiceModal('cv_linkedin')">
-        <div class="card-icon icon-terracotta">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </div>
-        <div class="card-info">
-          <div class="card-topline">
-            <span class="service-tag">SERVICIO CORE · ENTREGA 48 HS HÁBILES</span>
-          </div>
-          <span class="card-title">Pack CV + LinkedIn Optimizado</span>
-          <span class="card-subtitle">CV ATS (editable + PDF) + LinkedIn integral (SEO, Acerca de, palabras clave) + guía + 1 revisión</span>
-          <div class="card-price-row">
-            <span class="price-launch">$35.000 ARS / $30 USD</span>
-            <span class="price-regular"><s>$45.000 ARS</s> / <s>$40 USD</s></span>
-          </div>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
-
-      <!-- Servicio 3: Sesión 1:1 de Estrategia o Entrevistas (60 min) -->
-      <button class="link-card" onclick="openServiceModal('sesion_1a1')">
-        <div class="card-icon icon-navy">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-        </div>
-        <div class="card-info">
-          <div class="card-topline">
-            <span class="service-tag">GOOGLE MEET · 60 MINUTOS EN VIVO</span>
-          </div>
-          <span class="card-title">Sesión 1:1 de Estrategia o Entrevistas (60 min)</span>
-          <span class="card-subtitle">Simulacro de entrevista con feedback real o planificación de cambio de rumbo + resumen con plan de acción</span>
-          <div class="card-price-row">
-            <span class="price-launch">$25.000 ARS / $22 USD</span>
-            <span class="price-regular"><s>$40.000 ARS</s> / <s>$35 USD</s></span>
-          </div>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
-    </section>
-
-    <!-- 3. SECCIÓN ESPECIAL / APORTE COMUNITARIO: ORIENTACIÓN PARA EMIGRAR / WORKING HOLIDAY (AD HONOREM) -->
-    <section class="community-section" aria-label="Aporte Comunitario Ad Honorem">
-      <div class="section-header-row">
-        <span class="list-label">APORTE COMUNITARIO · EXPERIENCIA INTERNACIONAL</span>
-      </div>
-
-      <button class="link-card card-community" onclick="openServiceModal('australia_ad_honorem')">
-        <div class="community-badge">🌱 100% GRATUITO · AD HONOREM</div>
-        <div class="card-icon icon-sage">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-        </div>
-        <div class="card-info">
-          <span class="card-title">Orientación para Emigrar / Working Holiday</span>
-          <span class="card-subtitle">
-            Acompañamiento solidario basado en mi experiencia real viviendo y trabajando 2 años en Australia. Consejos reales de búsqueda en el exterior y armado de CV simple para trabajos operativos / hospitality.
-          </span>
-          <div class="card-price-row">
-            <span class="price-free">Sin costo · Aporte a la Comunidad</span>
-          </div>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
-    </section>
-
-    <!-- 4. ¿PARA QUIÉN ES ESTO? (PÚBLICOS OBJETIVO) -->
-    <section class="audience-section" aria-label="¿Para quién es esto?">
-      <div class="section-header-row">
-        <span class="list-label">¿PARA QUIÉN ES ESTO?</span>
-      </div>
-      <div class="audience-grid">
-        <article class="audience-card">
-          <div class="audience-icon">💼</div>
-          <div class="audience-content">
-            <h3>Candidatos locales y remotos (Argentina / LATAM)</h3>
-            <p>Personas en búsqueda de su primer empleo, reinserción laboral, cambio de rubro o crecimiento hacia posiciones de mandos medios.</p>
-          </div>
+          <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Me%20interesa%20el%20Plan%20B%C3%A1sico%20(Solo%20CV)%20a%20precio%20lanzamiento%20(%2412.000%20ARS%20%2F%20%2410%20USD).%20%C2%BFC%C3%B3mo%20empezamos%3F"
+             class="btn-pill btn-outline" target="_blank" rel="noopener">
+            Quiero el Plan Básico
+          </a>
         </article>
-        <article class="audience-card">
-          <div class="audience-icon">✈️</div>
-          <div class="audience-content">
-            <h3>Personas con proyecto migratorio</h3>
-            <p>Quienes planean viajar (ej. Working Holiday Australia) o necesitan reinsertarse laboralmente tras una experiencia viviendo y trabajando en el exterior.</p>
+
+        <!-- Tarjeta 2 (Centro — DESTACADA / OPCIÓN ESTRELLA): Plan Full — CV + LinkedIn -->
+        <article class="plan-card plan-featured">
+          <div class="featured-pill-badge">⭐ Más elegido</div>
+
+          <div class="plan-header">
+            <span class="plan-label">Plan Full</span>
+            <h2 class="plan-title">CV + LinkedIn</h2>
+            <div class="plan-price-block">
+              <div class="price-main">$35.000 <small>ARS</small> <span>/ $30 USD</span></div>
+              <div class="price-old">Regular: <s>$45.000 ARS</s> / <s>$40 USD</s></div>
+            </div>
           </div>
+
+          <ul class="plan-features">
+            <li>
+              <span class="check">✓</span>
+              <span>Todo el armado de CV optimizado (editable + PDF).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Optimización integral de tu perfil de LinkedIn (Titular, Acerca de, experiencias y palabras clave).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Guía práctica de uso + consultas por chat + 1 revisión incluida.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span><strong>Entrega en 48 hs hábiles</strong> (con info completa).</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Me%20interesa%20el%20Plan%20Full%20(CV%20%2B%20LinkedIn)%20a%20precio%20lanzamiento%20(%2435.000%20ARS%20%2F%20%2430%20USD).%20%C2%BFC%C3%B3mo%20empezamos%3F"
+             class="btn-pill btn-primary" target="_blank" rel="noopener">
+            Quiero el Plan Full
+          </a>
         </article>
+
+        <!-- Tarjeta 3 (Derecha): Plan Premium — Combo Completo (CV + LinkedIn + Sesión 1:1) -->
+        <article class="plan-card">
+          <div class="plan-header">
+            <span class="plan-label">Plan Premium</span>
+            <h2 class="plan-title">Combo Completo <small class="title-sub">(CV + LinkedIn + Sesión 1:1)</small></h2>
+            <div class="plan-price-block">
+              <div class="price-main">$40.000 <small>ARS</small> <span>/ $35 USD</span></div>
+              <div class="price-old">Regular: <s>$75.000 ARS</s> / <s>$65 USD</s></div>
+            </div>
+          </div>
+
+          <ul class="plan-features">
+            <li>
+              <span class="check">✓</span>
+              <span>Todo el Plan Full (CV + LinkedIn optimizado).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span><strong>Sesión 1:1 en vivo de 60 minutos</strong> por Google Meet (simulacro de entrevista o estrategia de cambio de rumbo).</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Resumen escrito post-sesión + soporte por chat.</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Me%20interesa%20el%20Plan%20Premium%20(Combo%20Completo%3A%20CV%20%2B%20LinkedIn%20%2B%20Sesi%C3%B3n%201%3A1)%20a%20precio%20lanzamiento%20(%2440.000%20ARS%20%2F%20%2435%20USD).%20%C2%BFC%C3%B3mo%20empezamos%3F"
+             class="btn-pill btn-outline" target="_blank" rel="noopener">
+            Quiero el Plan Premium
+          </a>
+        </article>
+
       </div>
+
+      <!-- Nota sutil para Sesión 1:1 suelta -->
+      <p class="single-session-note">
+        ¿Solo necesitás preparar una entrevista? También podés agendar una <strong>Sesión 1:1 de 60 min</strong> por <strong>$25.000 ARS / $22 USD</strong> <span class="old-inline">(<s>$40.000 ARS</s> / <s>$35 USD</s>)</span>.
+        <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Me%20gustar%C3%ADa%20agendar%20una%20Sesi%C3%B3n%201%3A1%20de%2060%20min%20(%2425.000%20ARS%20%2F%20%2422%20USD)." target="_blank" rel="noopener">Agendar acá →</a>
+      </p>
     </section>
 
-    <!-- 5. SOBRE MÍ, DIFERENCIAL, MISIÓN, VISIÓN Y VALORES -->
-    <section class="about-section" aria-label="Sobre Fátima Quevedo">
-      <div class="section-header-row">
-        <span class="list-label">SOBRE MÍ &amp; MI ENFOQUE</span>
-      </div>
-
-      <div class="about-card">
-        <h2 class="about-heading">Mirada real "del otro lado del escritorio" + reinvención en el exterior</h2>
-        <p class="about-text">
-          Combino mi experiencia generalista en <strong>selección masiva en consultora (Randstad Argentina)</strong> y liderazgo legal y negociación en <strong>Defensa al Consumidor</strong>, con la vivencia real de haberme reinventado y trabajado <strong>2 años en Australia</strong>.
+    <!-- 3. BLOQUE COMUNIDAD / AUSTRALIA (BANNER RELAJADO Y DESCONTRACTURADO) -->
+    <section class="emigrar-banner" aria-label="Orientación para emigrar">
+      <div class="emigrar-content">
+        <span class="emigrar-badge">🌏 100% Ad Honorem · Comunidad</span>
+        <h2 class="emigrar-title">¿Buscás emigrar? ¡Hablá conmigo!</h2>
+        <p class="emigrar-text">
+          Viví y trabajé 2 años en Australia. Si estás planeando irte de Working Holiday y necesitás una mano con consejos reales o armar tu CV para trabajos allá, escribime. Lo hago 100% ad honorem para darte una mano.
         </p>
-        <p class="about-text">
-          Te hablo claro y <strong>sin humo corporativo</strong>, bajando a tierra cómo filtran realmente los reclutadores y los sistemas ATS, sin miedo a los "baches" en el CV.
-        </p>
-
-        <div class="mission-vision-grid">
-          <div class="mv-box">
-            <span class="mv-label">MISIÓN</span>
-            <p>Brindar herramientas prácticas, claras y humanas de empleabilidad (CV, LinkedIn y preparación 1:1) para que profesionales y personas en transición laboral ganen seguridad, superen los filtros de selección y consigan oportunidades alineadas a lo que buscan.</p>
-          </div>
-          <div class="mv-box">
-            <span class="mv-label">VISIÓN</span>
-            <p>Consolidarme como una referente cercana y confiable en empleabilidad y desarrollo de carrera en habla hispana, escalando hacia programas grupales y consultoría de talento para empresas.</p>
-          </div>
-        </div>
-
-        <div class="values-pills">
-          <span class="value-pill">✓ Claridad sin humo</span>
-          <span class="value-pill">✓ Empatía real</span>
-          <span class="value-pill">✓ Practicidad y acción</span>
-          <span class="value-pill">✓ Evolución constante</span>
-        </div>
+      </div>
+      <div class="emigrar-action">
+        <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Vi%20tu%20mensaje%20sobre%20Australia%20%2F%20Working%20Holiday%20y%20me%20encantar%C3%ADa%20pedirte%20unos%20consejos."
+           class="btn-pill btn-sage" target="_blank" rel="noopener">
+          Escribime por WhatsApp
+        </a>
       </div>
     </section>
 
-    <!-- 6. OPERATIVA Y CANALES DE RESERVA / CONTACTO -->
-    <section class="process-section" aria-label="Cómo trabajamos">
-      <div class="section-header-row">
-        <span class="list-label">¿CÓMO TRABAJAMOS?</span>
-      </div>
-      <div class="process-steps">
-        <div class="process-step">
-          <span class="step-num">1</span>
-          <div>
-            <strong>Contacto o Reserva directa</strong>
-            <p>Escribime por WhatsApp si necesitás orientación previa o un empujón inicial, o reservá tu lugar directo.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <span class="step-num">2</span>
-          <div>
-            <strong>Relevamiento ordenado (Google Forms / Calendly)</strong>
-            <p>Completás un formulario de Google Forms para recopilar tus datos del CV de forma ordenada o agendamos tu sesión 1:1 en Calendly.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <span class="step-num">3</span>
-          <div>
-            <strong>Entrega en 48 hs hábiles + acompañamiento</strong>
-            <p>Recibís tus herramientas optimizadas (editable + PDF), devolución personalizada y soporte por chat.</p>
-          </div>
-        </div>
-      </div>
+    <!-- 4. CIERRE / CONTACTO FINAL DIRECTO -->
+    <section class="final-contact" aria-label="Contacto directo">
+      <h2 class="final-title">¿Dudas? ¡Hablá conmigo!</h2>
+      <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Te%20escribo%20desde%20tu%20web%20porque%20tengo%20una%20duda%20sobre%20los%20planes."
+         class="btn-pill btn-primary btn-large" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+        </svg>
+        <span>Charlemos por WhatsApp</span>
+      </a>
 
-      <!-- Tarjeta de Contacto Directo -->
-      <button class="link-card card-contact" onclick="openContactModal()">
-        <div class="card-icon icon-sage">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
-        </div>
-        <div class="card-info">
-          <span class="card-title">¿Dudas antes de contratar? Hablá conmigo</span>
-          <span class="card-subtitle">Escribime directo por WhatsApp para asesorarte según tu búsqueda actual</span>
-        </div>
-        <div class="card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
-      </button>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/fatima.rrhh" target="_blank" rel="noopener">Instagram @fatima.rrhh</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/fatimaquevedom" target="_blank" rel="noopener">LinkedIn</a>
+        <span>·</span>
+        <a href="mailto:fatimaquevedom@outlook.com">Email</a>
+      </div>
+      <p class="copyright">© <span id="current-year"></span> Fátima Quevedo | RRHH &amp; Carrera</p>
     </section>
-
-    <!-- Footer -->
-    <footer class="profile-footer">
-      <p>© <span id="current-year"></span> Fátima Quevedo | RRHH &amp; Carrera · Licenciada en Recursos Humanos</p>
-      <p class="footer-sub">Instagram <a href="https://www.instagram.com/fatima.rrhh" target="_blank" rel="noopener">@fatima.rrhh</a> · Argentina &amp; Exterior</p>
-    </footer>
 
   </main>
-
-  <!-- Botón Flotante de WhatsApp (Prioritario en toda la web) -->
-  <a href="https://wa.me/5492612556719?text=%C2%A1Hola%20F%C3%A1tima!%20Estoy%20viendo%20tu%20web%20y%20quiero%20hacerte%20una%20consulta." class="floating-wa-btn" id="floating-wa-btn" target="_blank" rel="noopener" aria-label="Hablar con Fátima por WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-    </svg>
-    <span>WhatsApp Directo</span>
-  </a>
-
-  <!-- ======================================================================
-       POP-UP / PUSH-UP MODAL (Detalles del Servicio, Precios, WhatsApp, Calendly & Forms)
-       ====================================================================== -->
-  <div class="modal-overlay" id="service-modal" aria-hidden="true">
-    <div class="modal-bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      
-      <!-- Tirador de arrastre estilo app móvil -->
-      <div class="sheet-handle" onclick="closeServiceModal()"></div>
-
-      <div class="modal-header">
-        <div class="modal-header-top">
-          <span class="modal-category-badge" id="modal-category">SERVICIO</span>
-          <button class="modal-close-btn" onclick="closeServiceModal()" aria-label="Cerrar">&times;</button>
-        </div>
-        <h2 class="modal-service-title" id="modal-title">Título del Servicio</h2>
-        <div class="modal-pricing-box" id="modal-pricing-box">
-          <div class="modal-price-launch" id="modal-price">$0 ARS</div>
-          <div class="modal-price-regular" id="modal-price-regular"></div>
-        </div>
-      </div>
-
-      <div class="modal-body">
-        <p class="modal-service-desc" id="modal-desc">Descripción del servicio...</p>
-
-        <div class="modal-section-title">¿QUÉ INCLUYE Y ENTREGABLES?</div>
-        <ul class="modal-features-list" id="modal-features">
-          <!-- Se completa dinámicamente con JS -->
-        </ul>
-
-        <div class="modal-meta-box">
-          <div class="meta-item">
-            <span class="meta-icon">⏳</span>
-            <div>
-              <strong id="modal-duration-label">Tiempo de Entrega / Duración</strong>
-              <small id="modal-duration">48 hs hábiles</small>
-            </div>
-          </div>
-          <div class="meta-item">
-            <span class="meta-icon">📋</span>
-            <div>
-              <strong>Operativa</strong>
-              <small id="modal-modality">Online · WhatsApp / Meet / Forms</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Botones de Acción: WhatsApp Prioritario, Calendly / Pago / Forms -->
-        <div class="modal-actions-container">
-          <!-- Botón Prioritario de WhatsApp -->
-          <a href="#" id="modal-wa-btn" class="action-btn btn-whatsapp-primary" target="_blank" rel="noopener">
-            <svg class="btn-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-            </svg>
-            <span id="modal-wa-text">Reservar mi cupo o consultar por WhatsApp</span>
-          </a>
-
-          <!-- Botón de Agendamiento Calendly (para sesiones 1:1 y combo) -->
-          <a href="#" id="modal-calendly-btn" class="action-btn btn-calendly" target="_blank" rel="noopener" style="display: none;">
-            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span>Agendar sesión 1:1 en Calendly</span>
-          </a>
-
-          <!-- Botón de Mercado Pago -->
-          <a href="#" id="modal-mp-btn" class="action-btn btn-mercadopago" target="_blank" rel="noopener">
-            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.9 7.7c-.5-.7-1.3-1.1-2.2-1.1h-2.1L15 4.8c-.3-.5-.9-.8-1.5-.8H7.3c-.8 0-1.5.5-1.8 1.2L2.2 14c-.1.3-.2.7-.2 1 0 1.9 1.5 3.4 3.4 3.4h11.2c1.7 0 3.1-1.2 3.4-2.8l1.4-6.3c.1-.5 0-1.1-.5-1.6zm-4.3 9.3H5.4c-.9 0-1.6-.7-1.6-1.6 0-.2 0-.3.1-.5l3.2-8.4c.1-.4.5-.6.9-.6h5.8l1.6 1.8h2.3c.4 0 .7.2.9.5.2.3.2.6.1.9l-1.4 6.3c-.2.9-1 1.6-1.9 1.6z"/>
-            </svg>
-            <span id="modal-mp-text">Solicitar link de pago (ARS / USD)</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================================================================
-       POP-UP DE CONTACTO DIRECTO
-       ====================================================================== -->
-  <div class="modal-overlay" id="contact-modal" aria-hidden="true">
-    <div class="modal-bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-      <div class="sheet-handle" onclick="closeContactModal()"></div>
-
-      <div class="modal-header">
-        <div class="modal-header-top">
-          <span class="modal-category-badge">CANALES DE RESERVA Y CONTACTO</span>
-          <button class="modal-close-btn" onclick="closeContactModal()" aria-label="Cerrar">&times;</button>
-        </div>
-        <h2 class="modal-service-title" id="contact-modal-title">Hablá directamente conmigo</h2>
-        <p class="modal-service-desc">Si necesitás asesoramiento previo o un "empujón" inicial para saber qué servicio se adapta mejor a tu momento laboral, escribime sin compromiso.</p>
-      </div>
-
-      <div class="modal-body">
-        <div class="contact-options-list">
-          <a href="https://wa.me/5492612556719" id="direct-wa-link" class="contact-option-btn wa-option" target="_blank" rel="noopener">
-            <div class="contact-opt-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-              </svg>
-            </div>
-            <div class="contact-opt-text">
-              <strong>WhatsApp Directo (Prioritario)</strong>
-              <small>+54 9 261 255-6719 · Respuesta rápida y cercana</small>
-            </div>
-            <span class="contact-opt-arrow">→</span>
-          </a>
-
-          <a href="https://www.instagram.com/fatima.rrhh" id="direct-ig-link" class="contact-option-btn ig-option" target="_blank" rel="noopener">
-            <div class="contact-opt-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </div>
-            <div class="contact-opt-text">
-              <strong>Instagram @fatima.rrhh</strong>
-              <small>Tips reales de empleabilidad, CV y selección</small>
-            </div>
-            <span class="contact-opt-arrow">→</span>
-          </a>
-
-          <a href="https://www.linkedin.com/in/fatimaquevedom" id="direct-li-link" class="contact-option-btn li-option" target="_blank" rel="noopener">
-            <div class="contact-opt-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
-            </div>
-            <div class="contact-opt-text">
-              <strong>Perfil Profesional en LinkedIn</strong>
-              <small>Conectemos en LinkedIn · Fátima Quevedo</small>
-            </div>
-            <span class="contact-opt-arrow">→</span>
-          </a>
-
-          <a href="mailto:fatimaquevedom@outlook.com" id="direct-mail-link" class="contact-option-btn mail-option" target="_blank" rel="noopener">
-            <div class="contact-opt-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="contact-opt-text">
-              <strong>Correo Electrónico</strong>
-              <small id="display-email">fatimaquevedom@outlook.com</small>
-            </div>
-            <span class="contact-opt-arrow">→</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
